@@ -33,5 +33,12 @@
 - push完了後
   - branchがmainのみになっていることを確認すること.
   - userがlocal環境へ変更を反映し, 実行または確認するためのpwsh commandを示すこと.
-    - @はシングルクオート'でクオートすること.
-    - `はクオートに使わないこと.
+    - userはlocalではjjを使っている.
+
+### pwsh
+
+- userに示すcommandはpwshとしてそのまま実行できる形にする。
+- `jj` のrevsetはシングルクォートで囲む。例: `-r '@-'`
+- PowerShellで複数commandの出力をまとめる場合、`(cmd1; cmd2)` は使わず `& { cmd1; cmd2 }` を使う。
+- 不要なバッククォートは使わない。
+- command block全体がPowerShellとして構文エラーにならないことを確認してから提示する。
