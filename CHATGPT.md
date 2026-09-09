@@ -70,7 +70,7 @@
 
 - userに示すcommandはpwshとしてそのまま実行できる形式にすること.
 - commandは細かく分割せず, 原則として1つのcode blockにまとめること.
-- commandの実行結果を途中で失敗したとしても, clipboardへcopyできる形にすること.
+- **commandの実行結果を途中で失敗したとしても, clipboardへcopyできる形にすること.**
 - 複数commandの出力をまとめる場合は `(cmd1; cmd2)` を使わず, `& { cmd1; cmd2 }` を使用すること.
 - 不要なbacktickを使用しないこと.
 - command block全体がpwshとしてsyntax errorにならないことを確認してから提示すること.
@@ -81,6 +81,10 @@
 - `git` ではなく `jj` を使用すること.
 - `jj` のrevsetはsingle quoteで囲むこと. 例: `-r '@-'`.
 - pwshでは `@` を含むrevsetを必ずquoteすること.
+- remote bookmarkやshared history上のimmutable commitをworking copyとして直接編集しないこと.
+  - `main@origin` などのremote bookmarkに対して `jj edit` を使用しないこと.
+  - remoteの最新版を作業基点にする場合は, `jj new 'main@origin'` などでその子に新しいworking-copy commitを作ること.
+  - immutable commitを書き換える目的で `--ignore-immutable` を使用しないこと.
 - 既存のworking copyの変更は今回の変更と分離してcommitし, 先にpushすること.
 
 ### remote repository
@@ -94,6 +98,8 @@
 ### push後
 
 - 作業後は変更をpushすること.
-- push完了後, localとremoteのbookmarkまたはbranchが `main` のみになっていることを確認すること.
+- push完了後, local bookmarkは `main` のみ, remote bookmarkは `main@origin` のみになっていることを確認すること.
 - userが local環境へ変更を反映 -> E2E test -> 実行 するpwsh commandを提示すること.
   - local側では `jj` を使用すること.
+  - remoteのshared commitをworking copyとして直接編集しないこと.
+  - localの変更を破棄してremoteへ合わせる場合も, immutable commitを書き換えない手順を使用すること.
