@@ -53,7 +53,8 @@
 
 ### 基本方針
 
-- 作業前にproject rootの `RULES.md` を読むこと. 存在しない場合は省略する.
+- 作業前にproject rootの `RULES.md` と `AGENTS.md` を読むこと. 存在しないものは省略する.
+- `.agents/skills` が存在する場合は, taskに関係するskillだけ読むこと. 全skillを一律に読む必要はない.
 - taskに他repositoryが関係しうる場合は, user指定のrepositoryだけに限定せず, dependency, 呼出関係, 共通設定などから関連repositoryを自ら特定し, 必要なrepositoryをすべて確認してから結論を出すこと.
 - userへの質問は, 設計上重要な不明点がある場合に限定する.
 - userの設計判断や指示を鵜呑みにせず, より良い設計がある場合は提案すること.
