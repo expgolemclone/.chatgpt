@@ -38,7 +38,7 @@
 
 - userに示すcommandはPowerShellとしてそのまま実行できる形式にすること.
 - commandは細かく分割せず, 原則として1つのcode blockにまとめること.
-- commandの実行結果をclipboardへcopyできる形にすること.
+- commandの実行結果を途中で失敗したとしても, clipboardへcopyできる形にすること.
 - 複数commandの出力をまとめる場合は `(cmd1; cmd2)` を使わず, `& { cmd1; cmd2 }` を使用すること.
 - 不要なbacktickを使用しないこと.
 - command block全体がPowerShellとしてsyntax errorにならないことを確認してから提示すること.
