@@ -68,19 +68,19 @@
 
 ### command
 
-- userに示すcommandはPowerShellとしてそのまま実行できる形式にすること.
+- userに示すcommandはpwshとしてそのまま実行できる形式にすること.
 - commandは細かく分割せず, 原則として1つのcode blockにまとめること.
 - commandの実行結果を途中で失敗したとしても, clipboardへcopyできる形にすること.
 - 複数commandの出力をまとめる場合は `(cmd1; cmd2)` を使わず, `& { cmd1; cmd2 }` を使用すること.
 - 不要なbacktickを使用しないこと.
-- command block全体がPowerShellとしてsyntax errorにならないことを確認してから提示すること.
+- command block全体がpwshとしてsyntax errorにならないことを確認してから提示すること.
 
 ### jj
 
 - `jj` に関する回答や操作を行う前に, まず `jj` の最新仕様を調べること.
 - `git` ではなく `jj` を使用すること.
 - `jj` のrevsetはsingle quoteで囲むこと. 例: `-r '@-'`.
-- PowerShellでは `@` を含むrevsetを必ずquoteすること.
+- pwshでは `@` を含むrevsetを必ずquoteすること.
 - 既存のworking copyの変更は今回の変更と分離してcommitし, 先にpushすること.
 
 ### remote repository
@@ -95,5 +95,5 @@
 
 - 作業後は変更をpushすること.
 - push完了後, localとremoteのbookmarkまたはbranchが `main` のみになっていることを確認すること.
-- userがlocal環境へ変更を反映し, 実行または確認できるPowerShell commandを提示すること.
+- userが local環境へ変更を反映 -> E2E test -> 実行 するpwsh commandを提示すること.
   - local側では `jj` を使用すること.
