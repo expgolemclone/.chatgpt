@@ -58,6 +58,13 @@
 - taskに他repositoryが関係しうる場合は, user指定のrepositoryだけに限定せず, dependency, 呼出関係, 共通設定などから関連repositoryを自ら特定し, 必要なrepositoryをすべて確認してから結論を出すこと.
 - userの設計判断や指示を鵜呑みにせず, より良い設計がある場合は提案すること.
 
+### Local Repository Paths
+
+- userのlocal repositoryのabsolute pathを推測しないこと.
+- local repositoryのpathが必要な場合は, GitHub connectorで `expgolemclone/local-repository-map` の `repositories.json` を取得し, repositoryの `owner/name` からpathを解決すること.
+- `repositories.json` はlocal filesystemから自動生成される唯一のrepository path mapとして扱い, READMEや他のrepository設定へpathを二重管理しないこと.
+- mapに対象repositoryが存在しない場合はpathを推測しないこと.
+
 ### Design
 
 - 二重管理をしないこと.
