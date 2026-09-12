@@ -82,13 +82,14 @@
 
 ### jj
 
-- `jj` に関する回答や操作を行う前に, まず `jj` の最新仕様を調べること.
+- `jj` はuserのlocal環境でのみ使用すること. ChatGPT側のcontainerやremote repository操作では `jj` を実行しないこと.
+- `jj` に関する回答や, userのlocal環境で実行してもらうcommandを提示する前に, まず `jj` の最新仕様を調べること.
 - `jj` のrevsetはsingle quoteで囲むこと. 例: `-r '@-'`.
-- 既存のworking copyの変更は今回の変更と分離してcommitし, 先にpushすること.
+- userのlocal working copyに既存の変更がある場合は, 今回の変更と分離してcommitし, 先にpushするためのcommandを提示すること.
 
 ### remote repository
 
-- remote repositoryへの変更反映にはGitHub connectorを使用すること.
+- ChatGPTがremote repositoryへ変更を反映する場合はGitHub connectorを使用すること.
 - `expgolemclone` 以外がownerのrepositoryには勝手にpushしないこと.
   - ownerが `expgolemclone` 以外の場合は, userに対応を確認すること.
 - private repositoryではGitHub Actionsを使用しないこと.
@@ -96,7 +97,7 @@
 
 ### push後
 
-- 作業後は変更をpushすること.
-- push完了後, local bookmarkは `main` のみ, remote bookmarkは `main@origin` のみになっていることを確認すること.
+- 作業後は変更をGitHub connectorでremote repositoryへpushすること.
+- push完了後, userのlocal環境でlocal bookmarkが `main` のみ, remote bookmarkが `main@origin` のみになるようにするcommandを提示すること.
 - **userが local環境へ変更を反映 -> E2E test -> 実行 するpwsh commandを提示すること.**
   - local側では `jj` を使用すること.
