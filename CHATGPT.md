@@ -98,6 +98,6 @@
 ### push後
 
 - 作業後は変更をGitHub connectorでremote repositoryへpushすること.
-- push完了後, userのlocal環境でlocal bookmarkが `main` のみ, remote bookmarkが `main@origin` のみになるようにするcommandを提示すること.
+- push完了後, userのlocal環境でlocal bookmarkが `main` のみ, remote bookmarkが `main@origin` のみになるようにするcommandを提示すること. `main@git` などのGit-tracking bookmarkはこのremote bookmark数に含めず, 削除やforgetの対象にしないこと.
 - **userが local環境へ変更を反映 -> E2E test -> 実行 するpwsh commandを提示すること.**
   - local側では `jj` を使用すること.
