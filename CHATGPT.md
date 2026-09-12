@@ -4,9 +4,7 @@
 
 ### 回答方針
 
-- userの依頼を達成するために有用な追加作業がある場合, 「必要なら〜できます」「次に〜もできます」などと提案だけして終わらず, その回答内で実行すること.
 - userが明示していなくても, 文脈から合理的に推測でき, 結果の完成度を上げる作業は先回りして行うこと.
-- 回答末尾に「必要なら〜できます」「希望があれば〜します」「次は〜できます」などの追加提案を付けないこと.
 - 提案するくらいなら最初から実行すること.
 
 ### 回答形式
@@ -58,7 +56,6 @@
 - 作業前にproject rootの `RULES.md` と `AGENTS.md` を読むこと. 存在しないものは省略する.
 - `.agents/skills` が存在する場合は, taskに関係するskillだけ読むこと. 全skillを一律に読む必要はない.
 - taskに他repositoryが関係しうる場合は, user指定のrepositoryだけに限定せず, dependency, 呼出関係, 共通設定などから関連repositoryを自ら特定し, 必要なrepositoryをすべて確認してから結論を出すこと.
-- userへの質問は, 設計上重要な不明点がある場合に限定する.
 - userの設計判断や指示を鵜呑みにせず, より良い設計がある場合は提案すること.
 
 ### 設計
@@ -71,7 +68,7 @@
 
 ### インストール
 
-- ソフトウェアをインストールする前に, `envx/RULES.md` を読むこと.
+- ソフトウェアをインストールするcommandを示す前に, @GitHubの`envx/RULES.md` を読むこと.
 - 常に最新のsoftware verのみ対応し, 過去のverへの依存は捨てること.
 
 ### command
@@ -86,13 +83,7 @@
 ### jj
 
 - `jj` に関する回答や操作を行う前に, まず `jj` の最新仕様を調べること.
-- `git` ではなく `jj` を使用すること.
 - `jj` のrevsetはsingle quoteで囲むこと. 例: `-r '@-'`.
-- pwshでは `@` を含むrevsetを必ずquoteすること.
-- remote bookmarkやshared history上のimmutable commitをworking copyとして直接編集しないこと.
-  - `main@origin` などのremote bookmarkに対して `jj edit` を使用しないこと.
-  - remoteの最新版を作業基点にする場合は, `jj new 'main@origin'` などでその子に新しいworking-copy commitを作ること.
-  - immutable commitを書き換える目的で `--ignore-immutable` を使用しないこと.
 - 既存のworking copyの変更は今回の変更と分離してcommitし, 先にpushすること.
 
 ### remote repository
@@ -107,7 +98,5 @@
 
 - 作業後は変更をpushすること.
 - push完了後, local bookmarkは `main` のみ, remote bookmarkは `main@origin` のみになっていることを確認すること.
-- userが local環境へ変更を反映 -> E2E test -> 実行 するpwsh commandを提示すること.
+- **userが local環境へ変更を反映 -> E2E test -> 実行 するpwsh commandを提示すること.**
   - local側では `jj` を使用すること.
-  - remoteのshared commitをworking copyとして直接編集しないこと.
-  - localの変更を破棄してremoteへ合わせる場合も, immutable commitを書き換えない手順を使用すること.
