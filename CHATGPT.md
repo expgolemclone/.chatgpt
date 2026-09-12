@@ -60,11 +60,6 @@
 
 ### Local Repository Paths
 
-- userのlocal repositoryのabsolute pathを推測しないこと.
-- local repositoryのpathが必要な場合は, GitHub connectorで `expgolemclone/local-repository-map` の `repositories.json` を取得し, repositoryの `owner/name` からpathを解決すること.
-- `repositories.json` はlocal filesystemから自動生成される唯一のrepository path mapとして扱い, READMEや他のrepository設定へpathを二重管理しないこと.
-- mapに対象repositoryが存在しない場合はpathを推測しないこと.
-
 ### Design
 
 - 二重管理をしないこと.
@@ -84,8 +79,7 @@
 - commandは細かく分割せず, 原則として1つのcode blockにまとめること.
 - **commandの実行結果を途中で失敗したとしても, clipboardへcopyできる形にすること.**
 - 複数commandの出力をまとめる場合は `(cmd1; cmd2)` を使わず, `& { cmd1; cmd2 }` を使用すること.
-- 不要なbacktickを使用しないこと.
-- command block全体がpwshとしてsyntax errorにならないことを確認してから提示すること.
+- local repositoryのpathが必要な場合は, GitHub connectorで `expgolemclone/local-repository-map` の `repositories.json` を取得し, repositoryの `owner/name` からpathを解決すること.
 
 ### jj
 
