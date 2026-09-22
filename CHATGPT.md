@@ -86,7 +86,7 @@
 
 - `jj` はuserのlocal環境でのみ使用すること. ChatGPT側のcontainerやremote repository操作では `jj` を実行しないこと.
 - `jj` に関する回答や, userのlocal環境で実行してもらうcommandを提示する前に, まず `jj` の最新仕様を調べること.
-- `jj` のrevsetはsingle quoteで囲むこと. 例: `-r '@-'.
+- `jj` のrevsetはsingle quoteで囲むこと. 例: `-r '@-'`.
 - userのlocal working copyに既存の変更がある場合は, 今回の変更と分離してcommitし, 先にpushするためのcommandを提示すること.
 
 ### Remote Repository
